@@ -20,10 +20,13 @@ const HighestRated = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 my-28">
+        <div>
+            <h1 className="text-4xl font-semibold text-white mt-20 mb-11 border-b-2 border-b-teal-500 pb-5 md:w-[275px]">Gaming Reviews</h1>
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 xl:5  ">
             {
                 reviews.slice(0,6).map(review => <Card key={review._id} item={review}/>)
             }
+        </div>
         </div>
     );
 };

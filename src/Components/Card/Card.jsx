@@ -1,69 +1,63 @@
-import React from "react";
-import { Rating } from "@smastrom/react-rating";
-import "@smastrom/react-rating/style.css";
+import { HiMiniCalendarDateRange } from "react-icons/hi2";
+import { IoGameControllerOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { Rating } from "@smastrom/react-rating"; // Import the Rating component
+
+import "@smastrom/react-rating/style.css"; // Import the rating styles
 
 const Card = ({ item }) => {
-    const {
-        _id,
-        gameCover,
-        gameTitle,
-        genre,
-        publishingYear,
-        rating,
-        reviewDescription,
-    } = item || {};
+  const {
+    _id,
+    gameCover,
+    gameTitle,
+    genre,
+    publishingYear,
+    rating,
+  } = item || {};
 
-    return (
-        <div className="card flex flex-col bg-opacity-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-xl mx-auto text-white transform hover:-translate-y-2 transition-transform duration-300 max-w-sm w-full">
-            {/* Game Cover */}
-            <figure className="h-56 overflow-hidden rounded-t-lg">
-                <img
-                    src={gameCover}
-                    alt={gameTitle || "Game Cover"}
-                    className="object-cover w-full h-full"
-                />
-            </figure>
-
-            {/* Card Content */}
-            <div className="card-body bg-opacity-90 bg-gray-900 rounded-b-lg p-4">
-                {/* Game Title */}
-                <h2 className="text-xl font-extrabold mb-2">
-                    {gameTitle || "Game Title"}
-                </h2>
-
-                {/* Publishing Year and Genre */}
-                <p className="text-sm">
-                    <span className="font-bold">Publishing Year:</span> {publishingYear || "N/A"}
-                </p>
-                <p className="text-sm">
-                    <span className="font-bold">Genre:</span> {genre || "N/A"}
-                </p>
-
-                {/* Rating */}
-                <div className="flex items-center mt-3">
-                    <span className="text-sm font-bold mr-2">Rating:</span>
-                    <Rating style={{ maxWidth: 100 }} value={rating || 0} readOnly />
-                    <span className="ml-2 text-sm">{rating || 0}/5</span>
-                </div>
-
-                {/* Review Description */}
-                <p className="mt-3 text-sm leading-relaxed">
-                    <span className="font-bold">Review:</span> {reviewDescription || "No review provided."}
-                </p>
-
-                {/* Actions */}
-                <div className="mt-4">
-                    <Link
-                        to={`/detail/${_id}`}
-                        className="btn btn-glass w-full text-center hover:bg-purple-700 hover:text-white"
-                    >
-                        <span className="text-black font-bold">Explore Details</span>
-                    </Link>
-                </div>
-            </div>
+  return (
+    <Link
+      to={`/detail/${_id}`}
+      className="col-span-1 cursor-pointer group bg-[#17191E] hover:shadow-teal-500 text-white shadow-xl p-3 rounded-xl"
+    >
+      <div className="flex flex-col gap-2 w-full">
+        <div
+          className="
+            aspect-square 
+            w-full 
+            relative 
+            overflow-hidden 
+            rounded-xl
+          "
+        >
+          <img
+            className="
+              object-cover 
+              h-full 
+              w-full 
+              group-hover:scale-110 
+              transition
+            "
+            src={gameCover || "https://via.placeholder.com/300"}
+            alt="Game Cover"
+          />
         </div>
-    );
+        <div className="font-semibold text-lg">{gameTitle || "Game Title"}</div>
+        <div className="font-semibold text-lg flex items-center gap-3">
+          <IoGameControllerOutline size={25} className="text-teal-500" /> {genre || "N/A"}
+        </div>
+        <div className="font-semibold text-lg flex gap-3 items-center">
+          <HiMiniCalendarDateRange size={25} className="text-teal-500" /> {publishingYear || "N/A"}
+        </div>
+        <div className="flex flex-row items-center gap-1">
+          {/* Updated the rating to use React Rating */}
+          <div className="font-semibold">
+            <Rating style={{ maxWidth: 100 }} value={rating || 0} readOnly />
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
 };
 
 export default Card;

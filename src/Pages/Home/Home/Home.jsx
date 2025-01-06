@@ -2,35 +2,42 @@ import { useState } from "react";
 import HomeCarousel from "../Carousel/HomeCarousel";
 import HighestRated from "../HighestRated/HighestRated";
 import SliderHome from "../Slider/SliderHome";
-import UniqueWidget from "../UniqueWidget/UniqueWidget";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
+
+
 import "./Home.css"; // Import styles for dark/light mode
 import AboutUs from "../Aboutus/AboutUs";
 import SwiperHome from "../Swiper/SwiperHome";
+import HeroSection from "./HeroSection/HeroSection";
+import MarqueeSection from "../MarqueeSection/MarqueeSection";
+import Container from "../../../Components/Container/Container";
+import Cover from "../Parallax/Cover";
+import GamingStats from "../Swiper/GamingStats/GamingStats";
+import SquadSection from "../SquadSection/SquadSection";
+import ReviewSection from "../ReviewSection/ReviewSection";
 
 const Home = () => {
-    const [isDarkMode, setDarkMode] = useState(false);
 
-    const toggleDarkMode = (checked) => {
-        setDarkMode(checked);
-    };
-    
+
     return (
-        <div className={`home-container  ${isDarkMode ? "bg-[#1B0239] text-white" : " bg-[#0A122A] text-white"}`}>
-            <div className="toggle-switch-container">
-                <DarkModeSwitch
-                    style={{ marginBottom: "1rem" ,color : 'white'}}
-                    checked={isDarkMode}
-                    onChange={toggleDarkMode}
-                    size={40}
-                />
-            </div>
-            <HomeCarousel />
-            <HighestRated />
-            <AboutUs/>
-            <SwiperHome/>
-            
-            <div className=" md:mx-6 "><UniqueWidget /></div>
+        <div className="">
+            <HeroSection />
+            <MarqueeSection />
+
+
+            <Container>
+                <HighestRated />
+
+            </Container>
+            <Cover img={"https://i.ibb.co.com/yB4Hbcc/medium-shot-ninja-wearing-equipment-1-1.jpg"} />
+            {/* <MarqueeSection /> */}
+            {/* <HomeCarousel /> */}
+            <GamingStats />
+            <SwiperHome />
+
+            <SquadSection img={"https://i.ibb.co.com/THjb52G/pxfuel-2.jpg"} />
+            <ReviewSection/>
+
+           
         </div>
     );
 };

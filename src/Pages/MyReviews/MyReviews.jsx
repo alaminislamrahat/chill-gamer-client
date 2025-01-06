@@ -35,13 +35,13 @@ const MyReviews = () => {
 
     return (
         <div className="container mx-auto px-4 py-10">
-            <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+            <h2 className="text-3xl font-bold text-white border-b-teal-500 border-b-2 mx-auto w-[300px] pt-20 pb-10 text-center mb-20">
                 My Reviews
             </h2>
-            <div className="overflow-x-auto bg-white shadow-lg rounded-lg border border-gray-200">
+            <div className="overflow-x-auto text-white shadow-lg rounded-lg border border-gray-200">
                 <table className="table w-full">
                     {/* Table Head */}
-                    <thead className="bg-blue-500 text-white">
+                    <thead className="bg-teal-500 text-white">
                         <tr>
                             <th className="py-4 px-6 text-left">Game Title</th>
                             <th className="py-4 px-6 text-left">Details</th>
@@ -55,7 +55,7 @@ const MyReviews = () => {
                     {mydata.length>0? mydata.map((item) => (
                             <tr
                                 key={item._id}
-                                className="hover:bg-gray-100 transition duration-300"
+                                className=""
                             >
                                 {/* Game Title */}
                                 <td className="py-4 px-6">
@@ -80,10 +80,10 @@ const MyReviews = () => {
                                 </td>
                                 {/* Review Details */}
                                 <td className="py-4 px-6">
-                                    <p className="text-gray-700">
+                                    <p className="text-white">
                                         {item.reviewDescription}
                                     </p>
-                                    <span className="inline-block mt-2 text-sm bg-gray-200 text-gray-600 py-1 px-2 rounded">
+                                    <span className="inline-block mt-2 text-sm  text-white py-1 px-2 rounded">
                                         Genre: {item.genre}
                                     </span>
                                 </td>
@@ -95,7 +95,7 @@ const MyReviews = () => {
                                 </td>
                                 {/* Update Button */}
                                 <td className="py-4 px-6 text-center">
-                                    <Link to={`/update/${item._id}`} className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white rounded-md shadow-md">
+                                    <Link to={`/update/${item._id}`} className="btn btn-sm bg-teal-500 hover:bg-blue-600 text-white rounded-md shadow-md">
                                         Update
                                     </Link>
                                 </td>

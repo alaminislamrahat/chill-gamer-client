@@ -4,6 +4,7 @@ import axios from "axios";
 
 import animation from '../../Lottie/notFound.json'
 import Lottie from "lottie-react";
+import toast from "react-hot-toast";
 
 
 const GameWatchList = () => {
@@ -25,16 +26,29 @@ const GameWatchList = () => {
         }
     };
 
+
+    const handleDelete = async (id) => {
+        try {
+            const { data } = await axios.delete(`https://chil-gamer-server.vercel.app/watchlist/delete/${id}`);
+            console.log(data);
+            toast.success('deleted successfully')
+            fetchData()
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <div className="flex items-center justify-between flex-wrap space-y-4 pb-4 bg-white dark:bg-gray-900">
-                <h1 className="text-lg font-bold text-gray-800 dark:text-white">
+            <div className="flex items-center justify-between flex-wrap space-y-4 pb-4 ">
+                <h1 className="text-4xl mx-auto w-[300px] border-b-2 border-b-teal-500 pb-10 pt-24 mb-20 font-bold text-white ">
                     Game WatchList
                 </h1>
 
             </div>
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-full text-sm text-left text-white">
+                <thead className="text-xs  uppercase  0 ">
                     <tr>
                         <th scope="col" className="px-6 py-3">
                             Cover
@@ -51,6 +65,9 @@ const GameWatchList = () => {
                         <th scope="col" className="px-6 py-3">
                             Reviewer
                         </th>
+                        <th scope="col" className="px-6 py-3">
+                            Delete
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,7 +75,7 @@ const GameWatchList = () => {
                         myData.map((item, index) => (
                             <tr
                                 key={index}
-                                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                className=" border-b"
                             >
                                 <td className="px-6 py-4">
                                     <img
@@ -67,12 +84,17 @@ const GameWatchList = () => {
                                         className="w-16 h-16 object-cover rounded-lg"
                                     />
                                 </td>
-                                <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                <td className="px-6 py-4 font-medium  dark:text-white">
                                     {item.gameTitle}
                                 </td>
                                 <td className="px-6 py-4">{item.genre}</td>
                                 <td className="px-6 py-4">{item.rating} / 5</td>
                                 <td className="px-6 py-4">{item.userName}</td>
+                                <td className="px-6 py-4"><button
+                                        onClick={() => handleDelete(item._id)}
+                                        className="btn btn-sm bg-red-500 hover:bg-red-600 text-white rounded-md shadow-md">
+                                        Delete
+                                    </button></td>
                             </tr>
                         ))
                     ) : (
