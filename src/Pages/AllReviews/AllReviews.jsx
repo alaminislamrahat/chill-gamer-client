@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Container from "../../Components/Container/Container";
 import Card from "../../Components/Card/Card";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const AllReviews = () => {
   const [review, setReview] = useState([]);
   const [sort, setSort] = useState("");
   const [toggleSort, setToggleSort] = useState("");
+
+  const {isDarkMode} = useContext(AuthContext);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,7 +30,7 @@ const AllReviews = () => {
     <Container>
       <div>
         {/* Title */}
-        <h1 className="text-center font-bold border-b-2 w-[350px] mx-auto border-b-teal-500 mb-10 text-white md:text-5xl text-3xl pt-32 pb-10">
+        <h1 className={`text-center font-bold border-b-2 md:w-[350px] mx-auto border-b-teal-500 mb-10 ${isDarkMode ? 'text-black' : 'text-white'} md:text-5xl text-3xl pt-32 pb-10`}>
           All Reviews
         </h1>
 
@@ -39,24 +42,24 @@ const AllReviews = () => {
             value={sort}
             name="sort"
             id="sort"
-            className="border bg-transparent text-white p-3 rounded-md w-full md:w-auto"
+            className={`border-teal-500 border-2 bg-transparent ${isDarkMode ? 'text-black' : 'text-white'} p-3 rounded-md w-full md:w-auto`}
           >
-            <option className="bg-black" value="">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`} value="">
               All Genres
             </option>
-            <option className="bg-black" value="Action">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
               Action
             </option>
-            <option className="bg-black" value="RPG">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
               RPG
             </option>
-            <option className="bg-black" value="Adventure">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
               Adventure
             </option>
-            <option className="bg-black" value="Strategy">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
               Strategy
             </option>
-            <option className="bg-black" value="Puzzle">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
               Puzzle
             </option>
           </select>
@@ -67,15 +70,15 @@ const AllReviews = () => {
             value={toggleSort}
             name="toggleSort"
             id="toggleSort"
-            className="border bg-transparent text-white p-3 rounded-md w-full md:w-auto"
+            className={`border-teal-500 border-2 bg-transparent ${isDarkMode ? 'text-black' : 'text-white'} p-3 rounded-md w-full md:w-auto`}
           >
-            <option className="bg-black" value="">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`} value="">
               Sort By
             </option>
-            <option className="bg-black" value="rating">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`} value="rating">
               Rating
             </option>
-            <option className="bg-black" value="year">
+            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`} value="year">
               Year
             </option>
           </select>

@@ -2,11 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
+  
   return (
     <div
       className="relative w-full h-[80vh] bg-cover bg-center"
       style={{
-        backgroundImage: `url('https://i.ibb.co.com/THjb52G/pxfuel-2.jpg')`, // Replace with your desired image URL
+        backgroundImage: `url('https://i.ibb.co/THjb52G/pxfuel-2.jpg')`, // Replace with your image URL
       }}
     >
       {/* Dark overlay */}

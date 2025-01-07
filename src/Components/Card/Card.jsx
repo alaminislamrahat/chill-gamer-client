@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import { motion } from "framer-motion"; // Import Framer Motion
 import "@smastrom/react-rating/style.css";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const Card = ({ item }) => {
   const { _id, gameCover, gameTitle, genre, publishingYear, rating } = item || {};
 
+  const {isDarkMode} = useContext(AuthContext);
+
   return (
     <Link
       to={`/detail/${_id}`}
-      className="col-span-1 cursor-pointer group bg-[#17191E] hover:shadow-teal-500 text-white shadow-xl p-3 rounded-xl"
+      className={`col-span-1 cursor-pointer group ${isDarkMode ? '' : 'bg-[#17191E] text-white'}  hover:shadow-teal-500 shadow-xl p-3 rounded-xl`}
     >
       <motion.div
         className="flex flex-col gap-2 w-full"

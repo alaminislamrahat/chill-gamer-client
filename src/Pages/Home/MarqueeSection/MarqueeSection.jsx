@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Marquee from 'react-fast-marquee';
 import { FaXbox, FaPlaystation, FaSteam, FaTwitch, FaDiscord } from 'react-icons/fa';
+import { AuthContext } from '../../../Providers/AuthProvider/AuthProvider';
 
 const MarqueeSection = () => {
+
+  const {isDarkMode} = useContext(AuthContext);
+
   const sponsors = [
     { logo: <FaXbox size={32} />, name: "Xbox Gaming" },
     { logo: <FaPlaystation size={32} />, name: "PlayStation Universe" },
@@ -12,7 +16,7 @@ const MarqueeSection = () => {
   ];
 
   return (
-    <div className="py-6 bg-black text-white">
+    <div className={`py-6 ${isDarkMode ? 'bg-white text-black'  : ' bg-black text-white'}`}>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:space-x-4 space-y-4 lg:space-y-0 px-4">
         {/* "Our Sponsors" Title */}
         <h1 className="text-2xl font-bold whitespace-nowrap border-r-2 pr-4 border-teal-600">
@@ -25,7 +29,7 @@ const MarqueeSection = () => {
             {sponsors.map((sponsor, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-3 px-4 py-2 mx-2 bg-black/50 rounded-md shadow-md"
+                className={`flex items-center space-x-3 px-4 py-2 mx-2 ${isDarkMode ? 'bg-white/50' : 'bg-black/50'} rounded-md shadow-md`}
               >
                 {sponsor.logo}
                 <span className="font-medium text-sm sm:text-base">{sponsor.name}</span>

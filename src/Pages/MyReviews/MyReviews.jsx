@@ -7,7 +7,7 @@ import Lottie from "lottie-react";
 import animation from '../../Lottie/notFound.json'
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext);
+    const { user,isDarkMode } = useContext(AuthContext);
 
     const [mydata, setMydata] = useState([]);
 
@@ -35,7 +35,7 @@ const MyReviews = () => {
 
     return (
         <div className="container mx-auto px-4 py-10">
-            <h2 className="text-3xl font-bold text-white border-b-teal-500 border-b-2 mx-auto w-[300px] pt-20 pb-10 text-center mb-20">
+            <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-black' : 'text-white'} border-b-teal-500 border-b-2 mx-auto w-[300px] pt-20 pb-10 text-center mb-20`}>
                 My Reviews
             </h2>
             <div className="overflow-x-auto text-white shadow-lg rounded-lg border border-gray-200">
@@ -69,7 +69,7 @@ const MyReviews = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <p className="font-semibold text-lg">
+                                            <p className={`${isDarkMode ? 'text-black' : 'text-white'} font-semibold text-lg`}>
                                                 {item.gameTitle}
                                             </p>
                                             <p className="text-sm text-gray-500">
@@ -80,10 +80,10 @@ const MyReviews = () => {
                                 </td>
                                 {/* Review Details */}
                                 <td className="py-4 px-6">
-                                    <p className="text-white">
+                                    <p className={`${isDarkMode ? 'text-black' : 'text-white'}`}>
                                         {item.reviewDescription}
                                     </p>
-                                    <span className="inline-block mt-2 text-sm  text-white py-1 px-2 rounded">
+                                    <span className={`inline-block mt-2 text-sm  ${isDarkMode ? 'text-black' : 'text-white'} py-1 px-2 rounded`}>
                                         Genre: {item.genre}
                                     </span>
                                 </td>

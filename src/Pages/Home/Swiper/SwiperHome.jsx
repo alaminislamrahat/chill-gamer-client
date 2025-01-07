@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,8 +10,12 @@ import "swiper/css/pagination";
 // Additional Swiper modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 
 const SwiperHome = () => {
+
+  const {isDarkMode} = useContext(AuthContext);
+
   const games = [
     {
       title: "Elden Ring",
@@ -90,7 +94,7 @@ const SwiperHome = () => {
       {/* Navigation Buttons */}
       <div className="flex justify-center items-center mt-6 gap-4">
         <button
-          className="p-4 bg-black text-teal-400 rounded-full hover:bg-gray-800 transition-all flex items-center justify-center"
+          className={`p-4 ${isDarkMode ? 'bg-white hover:bg-slate-200' : 'bg-black hover:bg-gray-800'} text-teal-400 rounded-full  transition-all flex items-center justify-center`}
           onClick={() => {
             const swiper = document.querySelector(".mySwiper").swiper;
             swiper.slidePrev();
@@ -99,7 +103,7 @@ const SwiperHome = () => {
           <FaArrowLeft size={20} />
         </button>
         <button
-          className="p-4 bg-black text-teal-400 rounded-full hover:bg-gray-800 transition-all flex items-center justify-center"
+          className={`p-4 ${isDarkMode ? 'bg-white hover:bg-slate-200' : 'bg-black hover:bg-gray-800'} text-teal-400 rounded-full  transition-all flex items-center justify-center`}
           onClick={() => {
             const swiper = document.querySelector(".mySwiper").swiper;
             swiper.slideNext();
