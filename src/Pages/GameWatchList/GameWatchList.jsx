@@ -8,8 +8,9 @@ import toast from "react-hot-toast";
 
 
 const GameWatchList = () => {
-    const { user } = useContext(AuthContext);
+    const { user, isDarkMode } = useContext(AuthContext);
     const [myData, setMyData] = useState([]);
+
 
     useEffect(() => {
         if (user?.email) {
@@ -42,12 +43,12 @@ const GameWatchList = () => {
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <div className="flex items-center justify-between flex-wrap space-y-4 pb-4 ">
-                <h1 className="text-4xl mx-auto w-[300px] border-b-2 border-b-teal-500 pb-10 pt-24 mb-20 font-bold text-white ">
+                <h1 className={`text-4xl mx-auto w-[300px] border-b-2 border-b-teal-500 pb-10 pt-24 mb-20 font-bold ${isDarkMode ? 'text-black' : 'text-white'} `}>
                     Game WatchList
                 </h1>
 
             </div>
-            <table className="w-full text-sm text-left text-white">
+            <table className={`w-full text-sm text-left ${isDarkMode ? 'text-black' : 'text-white'}`}>
                 <thead className="text-xs  uppercase  0 ">
                     <tr>
                         <th scope="col" className="px-6 py-3">
@@ -84,7 +85,7 @@ const GameWatchList = () => {
                                         className="w-16 h-16 object-cover rounded-lg"
                                     />
                                 </td>
-                                <td className="px-6 py-4 font-medium  dark:text-white">
+                                <td className={`px-6 py-4 font-medium  ${isDarkMode ? 'text-black' : 'text-white'}`}>
                                     {item.gameTitle}
                                 </td>
                                 <td className="px-6 py-4">{item.genre}</td>

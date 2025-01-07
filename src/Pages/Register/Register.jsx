@@ -72,12 +72,12 @@ const Register = () => {
     };
 
     return (
-        <div className="hero min-h-screen flex items-center justify-center pt-20 bg-gray-900">
+        <div className="hero min-h-screen flex items-center justify-center pt-20 ">
             <div className="hero-content flex-col lg:flex-row-reverse gap-10 items-center">
                 <div className="text-center lg:text-left w-1/2">
                     <img src={img} alt="Register" className="rounded-lg shadow-lg" />
                 </div>
-                <div className="card bg-gray-800 w-full max-w-md rounded-lg shadow-2xl p-8">
+                <div className="card border-2 border-white w-full max-w-md rounded-lg shadow-2xl p-8">
                     <h1 className="text-center text-3xl font-extrabold text-blue-500 mb-6">Sign Up</h1>
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="form-control">

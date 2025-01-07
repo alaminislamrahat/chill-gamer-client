@@ -41,7 +41,7 @@ const Login = () => {
     };
 
     return (
-        <div className="hero min-h-screen flex items-center justify-center bg-gray-900 pt-20">
+        <div className="hero min-h-screen flex items-center justify-center  pt-20">
             <div className="hero-content flex-col lg:flex-row-reverse gap-10 items-center">
                 {/* Image Section */}
                 <div className="text-center lg:text-left w-1/2">
@@ -49,7 +49,7 @@ const Login = () => {
                 </div>
 
                 {/* Form Section */}
-                <div className="card bg-gray-800 w-full max-w-md rounded-lg shadow-2xl p-8">
+                <div className="card border-2 border-white w-full max-w-md rounded-lg shadow-2xl p-8">
                     <h1 className="text-center text-3xl font-extrabold text-[#F0725F] mb-6">Login</h1>
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="form-control">
