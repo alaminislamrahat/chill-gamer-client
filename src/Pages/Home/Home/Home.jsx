@@ -14,6 +14,7 @@ import Cover from "../Parallax/Cover";
 import GamingStats from "../Swiper/GamingStats/GamingStats";
 import SquadSection from "../SquadSection/SquadSection";
 import ReviewSection from "../ReviewSection/ReviewSection";
+import DownloadSection from "../DownloadSection/DownloadSection";
 
 const Home = () => {
 
@@ -36,6 +37,7 @@ const Home = () => {
 
             <SquadSection img={"https://i.ibb.co.com/THjb52G/pxfuel-2.jpg"} />
             <ReviewSection/>
+            <DownloadSection/>
 
            
         </div>
