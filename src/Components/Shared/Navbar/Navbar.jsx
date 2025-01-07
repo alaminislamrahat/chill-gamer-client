@@ -6,6 +6,7 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 const Navbar = () => {
     const { user, logOut, isDarkMode, toggleDarkMode } = useContext(AuthContext);
+    
 
     const navOptions = (
         <>
@@ -111,7 +112,7 @@ const Navbar = () => {
                     {/* Logo */}
                     <Link
                         to="/"
-                        className="text-2xl font-bold text-teal-400 hover:text-teal-400 transition-all"
+                        className="md:text-2xl font-bold text-xs text-teal-400 hover:text-teal-400 transition-all"
                     >
                         Chill Gamer
                     </Link>

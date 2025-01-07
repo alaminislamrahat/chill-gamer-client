@@ -5,9 +5,9 @@ import lottiefile from "../../../Lottie/lottie.json";
 const AboutUs = () => {
   return (
     <div className="flex items-center justify-center mt-20 text-white">
-      <div className="w-full">
+      <div className="w-full ">
         <motion.div
-          className="flex flex-col lg:flex-row gap-10"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10"
           initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and shifted down
           whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
           viewport={{ once: true, amount: 0.2 }} // Trigger animation once, when 20% visible
@@ -38,7 +38,7 @@ const AboutUs = () => {
 
           {/* Right Side: Lottie Animation */}
           <motion.div
-            className="lg:w-1/2 flex justify-center items-center"
+            className="lg:w-1/2 flex justify-center  items-center"
             initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and shifted down
             whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
             viewport={{ once: true, amount: 0.2 }} // Trigger animation once, when 20% visible

@@ -9,7 +9,7 @@ const AllReviews = () => {
   const [sort, setSort] = useState("");
   const [toggleSort, setToggleSort] = useState("");
 
-  const {isDarkMode} = useContext(AuthContext);
+  const { isDarkMode } = useContext(AuthContext);
 
   useEffect(() => {
     const getData = async () => {
@@ -28,9 +28,13 @@ const AllReviews = () => {
 
   return (
     <Container>
-      <div>
+      <div className="overflow-x-hidden">
         {/* Title */}
-        <h1 className={`text-center font-bold border-b-2 md:w-[350px] mx-auto border-b-teal-500 mb-10 ${isDarkMode ? 'text-black' : 'text-white'} md:text-5xl text-3xl pt-32 pb-10`}>
+        <h1
+          className={`text-center font-bold border-b-2 md:w-[350px] mx-auto border-b-teal-500 mb-10 ${
+            isDarkMode ? "text-black" : "text-white"
+          } text-3xl md:text-5xl pt-16 md:pt-32 pb-10`}
+        >
           All Reviews
         </h1>
 
@@ -42,24 +46,29 @@ const AllReviews = () => {
             value={sort}
             name="sort"
             id="sort"
-            className={`border-teal-500 border-2 bg-transparent ${isDarkMode ? 'text-black' : 'text-white'} p-3 rounded-md w-full md:w-auto`}
+            className={`border-teal-500 border-2 bg-transparent ${
+              isDarkMode ? "text-black" : "text-white"
+            } p-3 rounded-md w-full md:w-auto`}
           >
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`} value="">
+            <option
+              className={`${isDarkMode ? "bg-white" : "bg-black"}`}
+              value=""
+            >
               All Genres
             </option>
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
+            <option className={`${isDarkMode ? "bg-white" : "bg-black"}`}>
               Action
             </option>
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
+            <option className={`${isDarkMode ? "bg-white" : "bg-black"}`}>
               RPG
             </option>
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
+            <option className={`${isDarkMode ? "bg-white" : "bg-black"}`}>
               Adventure
             </option>
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
+            <option className={`${isDarkMode ? "bg-white" : "bg-black"}`}>
               Strategy
             </option>
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`}>
+            <option className={`${isDarkMode ? "bg-white" : "bg-black"}`}>
               Puzzle
             </option>
           </select>
@@ -70,22 +79,33 @@ const AllReviews = () => {
             value={toggleSort}
             name="toggleSort"
             id="toggleSort"
-            className={`border-teal-500 border-2 bg-transparent ${isDarkMode ? 'text-black' : 'text-white'} p-3 rounded-md w-full md:w-auto`}
+            className={`border-teal-500 border-2 bg-transparent ${
+              isDarkMode ? "text-black" : "text-white"
+            } p-3 rounded-md w-full md:w-auto`}
           >
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`} value="">
+            <option
+              className={`${isDarkMode ? "bg-white" : "bg-black"}`}
+              value=""
+            >
               Sort By
             </option>
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`} value="rating">
+            <option
+              className={`${isDarkMode ? "bg-white" : "bg-black"}`}
+              value="rating"
+            >
               Rating
             </option>
-            <option className={`${isDarkMode ? 'bg-white' : 'bg-black'}`} value="year">
+            <option
+              className={`${isDarkMode ? "bg-white" : "bg-black"}`}
+              value="year"
+            >
               Year
             </option>
           </select>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-8 my-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 my-10">
           {review.map((item) => (
             <Card key={item._id} item={item} />
           ))}
